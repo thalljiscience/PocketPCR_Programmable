@@ -38,7 +38,7 @@ To replace the limited programmability of the PocketPCR with an open-ended set o
 8.  Open PocketPCR_Programmable.ino in the Arduino IDE and upload to the PocketPCR device
 9.  Download the Visual Studio 2015 C# solution "PocketPCRController" and build it, or just download the PocketPCRController.exe executable from the PocketPCRController_Executable folder to run and program the reprogrammed PocketPCR device connected to your PC through a USB port.
 
-Hyperlinked code documentation can be found in HTML_documentation.zip.  Just unzip all contents into one directory and load "index.html" into a web browser.
+Hyperlinked code documentation can be found in <a href="https://github.com/thalljiscience/PocketPCR_Programmable/tree/main/PocketPCRController/HTML_documentation.zip">HTML_documentation.zip.</a>  Just unzip all contents into one directory and load "index.html" into a web browser.
 The same documentation can be found in pdf format in PocketPCRController.pdf.
 
 Email tomandhall@gmail.com with questions.
