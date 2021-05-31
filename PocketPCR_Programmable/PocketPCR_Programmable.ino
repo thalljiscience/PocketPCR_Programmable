@@ -183,15 +183,15 @@ char* command;
 char* infoOutput;
 int outputPos;
 
-// Thermistor recalibration prameters
-//#define ThermA 0.0
-//#define ThermB 1.0
-//#define ThermC 0.0
+// Thermistor recalibration parameters - defaults
+#define ThermA 0.0
+#define ThermB 1.0
+#define ThermC 0.0
 
-// Recalibration prameters for my damaged thermistor
-#define ThermA -0.00018
-#define ThermB 1.08890
-#define ThermC 7.53134
+// Recalibration parameters for my damaged thermistor
+//#define ThermA -0.00018
+//#define ThermB 1.08890
+//#define ThermC 7.53134
 //---------------------------------------------------------------------------------------------
 
 void setup() {
