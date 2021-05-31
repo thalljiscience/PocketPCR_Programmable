@@ -1,7 +1,7 @@
 # PocketPCR_Programmable
 Open-ended, programmable version of the open-source and open-hardware portable GaudiLabs USB-powered PocketPCR device with associated PC-side controller program to operate through a USB serial port.
 
-<img src="Thermocycling_ss.jpg"  title="PocketPCRController Interface" height="211" width="437">
+<img src="Thermocycling_ss.jpg"  title="PocketPCRController Interface" height="211" width="437"><img src="Editor_ss.jpg"  title="PocketPCRController Editor Interface" height="211" width="465">
 
 The GaudiLabs PocketPCR portable USB-powered thermalcycling device can be found at https://gaudi.ch/PocketPCR/
 It is an open-source and open-hardware platform distributed under the GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
