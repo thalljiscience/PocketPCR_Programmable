@@ -39,6 +39,6 @@ To replace the limited programmability of the PocketPCR with an open-ended set o
 9.  Download the Visual Studio 2015 C# solution "PocketPCRController" and build it, or just download the PocketPCRController.exe executable from the PocketPCRController_Executable folder to run and program the reprogrammed PocketPCR device connected to your PC through a USB port.
 
 Hyperlinked code documentation can be found in <a href="https://github.com/thalljiscience/PocketPCR_Programmable/tree/main/PocketPCRController/HTML_documentation.zip">HTML_documentation.zip.</a>  Just unzip all contents into one directory and load "index.html" into a web browser.
-The same documentation can be found in pdf format in PocketPCRController.pdf.
+The same documentation can be found in pdf format in <a href="https://github.com/thalljiscience/PocketPCR_Programmable/tree/main/PocketPCRController/PocketPCRController.pdf">PocketPCRController.pdf.</a>
 
 Email tomandhall@gmail.com with questions.
