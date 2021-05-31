@@ -2,17 +2,17 @@
 Open-ended, programmable version of the open-source and open-hardware portable GaudiLabs USB-powered PocketPCR device with associated PC-side controller program to operate through a USB serial port.
 
 The GaudiLabs PocketPCR portable USB-powered thermalcycling device can be found at https://gaudi.ch/PocketPCR/
-It is an open-source and open-hardware platform dsitributed under the GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
-Extensions to the platform found in this repository fall under the same license and any further modifications must be distributed wih the same license.
+It is an open-source and open-hardware platform distributed under the GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007.
+Extensions to the platform found in this repository fall under the same license and any further modifications must be distributed with the same license.
 
 The GaudiLabs PocketPCR device runs on a modified Adafruit Feather M0 board that can be programmed with the Arduino IDE, but a custom board specification must be loaded into the IDE (see below).
 
 WARNING: The custom Adafruit Feather M0 device does not have a reset switch.  If code is uploaded to the board that renders it unrecognizable as a USB device, it will become unresponsive and unable to be flashed.  This is not a fatal condition, but is a little tricky.  Here is what must be done to reset the board:
 
--- With the device connceted to the PC through USB, turn the board over to expose the microcontroller chip (may be labeled Atmel).  
+-- With the device connected to the PC through USB, turn the board over to expose the microcontroller chip (may be labeled Atmel).  
 -- Orient the board so that the USB port is on your left.
 -- The microcontroller is the chip towards the top, just left of center of the device, with 12 connections on each of its four sides.
--- with the power on, a thin wire must be used to carefully connect the bottom connector on the right side of the cip to the fourth from the right connector along the top row of connectors.  This should be done twice in rapid succession until the computer recognizes the device.
+-- With the power on, a thin wire must be used to carefully connect the bottom connector on the right side of the chip to the fourth from the right connector along the top row of connectors.  This should be done twice in rapid succession until the computer recognizes the device.
 -- Once the device is recognized again, the flashing procedure can be repeated.  
 -- It is a good idea to get a clean version of either the original GaudiLabs "PocketPCR_V2_quite_dev_i_disp.ino" code or the unmodified "PocketPCR_Programmable.ino" to flash to the device and get it working again before trying to figure out what went wrong.
 
