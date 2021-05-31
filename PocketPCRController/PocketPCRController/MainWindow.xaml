@@ -1,0 +1,82 @@
+﻿<Window x:Class="PocketPCRController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PocketPCRController"
+        mc:Ignorable="d"
+        Title="Pocket PCR Driver Interface" Height="428.509" Width="887.428" Icon="Default-icon.ico">
+    <Window.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="TransparentButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="0"
+                        
+                        BorderBrush="Transparent" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label x:Name="comPortLabel" Content="Com Port" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comPortBox" HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Width="99" Height="26"/>
+        <Label x:Name="baudRateLabel" Content="Baud Rate" HorizontalAlignment="Left" Margin="16,39,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="baudRateBox" HorizontalAlignment="Left" Height="23" Margin="85,42,0,0" TextWrapping="Wrap" Text="115200" VerticalAlignment="Top" Width="99"/>
+
+        <Button x:Name="openSerialBtn" Content="Connect" HorizontalAlignment="Left" Height="26" Margin="189,10,0,0" VerticalAlignment="Top" Width="70" Click="openSerialBtn_Click"/>
+        <Button x:Name="closeSerialBtn" Content="Disconnect" HorizontalAlignment="Left" Height="26" Margin="266,10,0,0" VerticalAlignment="Top" Width="70" Click="closeSerialBtn_Click"/>
+        <Label x:Name="progLabel" Content="Program" HorizontalAlignment="Left" Margin="27,354,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="runProgramBtn" Content="Run" HorizontalAlignment="Left" Height="26" Margin="325,354,0,0" VerticalAlignment="Top" Width="64" Click="runProgramBtn_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="268" Margin="16,77,0,0" VerticalAlignment="Top" Width="842" Source="Images/PoketPCR.png"/>
+        <Label x:Name="btLabel" Visibility="Hidden" Content="Block Temp:" HorizontalAlignment="Left" Margin="394,131,0,0" VerticalAlignment="Top" Foreground="#FFE8D518" FontSize="14"/>
+        <Label x:Name="blockTempLabel" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="470,131,0,0" VerticalAlignment="Top" Foreground="#FFE8D518" FontSize="14"/>
+        <ComboBox x:Name="programBox" HorizontalAlignment="Left" Margin="88,354,0,0" VerticalAlignment="Top" Width="232" Height="26" FontWeight="Bold" Foreground="#FF000500" />
+        <Label x:Name="runPCRBackground" Visibility="Hidden" Content="" HorizontalAlignment="Left" Height="28" Margin="403,159,0,0" VerticalAlignment="Top" Width="145" Foreground="#FFFFFFFC" />
+        <Label x:Name="runPCRLabel" Visibility="Hidden" Content="Run PCR" HorizontalAlignment="Left" Height="45" Margin="403,149,0,0" VerticalAlignment="Top" Width="145" Foreground="#FFFFFFFC" FontSize="24"/>
+        <Label x:Name="programBackground" Visibility="Hidden" Content="" HorizontalAlignment="Left" Height="28" Margin="403,190,0,0" VerticalAlignment="Top" Width="145" Foreground="#FFFFFFFC"/>
+        <Label x:Name="programLabel" Visibility="Hidden" Content="Program" HorizontalAlignment="Left" Height="45" Margin="403,180,0,0" VerticalAlignment="Top" Width="145" Foreground="#FFFFFFFC" FontSize="24"/>
+
+        <Button PreviewMouseDown ="rotaryDial__PreviewMouseDown" Style="{StaticResource TransparentButtonStyle}" Height="140" Width="140" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Margin="636,139,0,0" Name="rotaryDial" ToolTip="Rotary Dial: Left-click to rotate counter-clockwise, right-click to rotate clockwise, double-click to push button" VerticalAlignment="Top" >
+            <StackPanel Margin="0" Orientation="Horizontal">
+                <Image x:Name="rotaryDialImage" Height="140" Stretch="Uniform" VerticalAlignment="Stretch" Width="139" Source="Images/dial1.png"/>
+            </StackPanel>
+        </Button>
+        <Label x:Name="selectedProgramLabel" Content="" HorizontalAlignment="Left" Margin="394,214,0,0" VerticalAlignment="Top" Foreground="#FFE8D518" FontSize="14"/>
+        <Label x:Name="runningProgramLabelBackground" Content="" HorizontalAlignment="Left" Margin="394,131,0,0" VerticalAlignment="Top" Width="184" Height="18" Background="#FFF9F7F7"/>
+        <Label x:Name="runningProgramLabel" Content="PCR Running: RT-PCR" HorizontalAlignment="Left" Margin="394,126,0,0" VerticalAlignment="Top" Width="184" Height="24" />
+        <Label x:Name="runningBlockLabel" Content="Seg 2/5, Blk 1/3, Cycle 4/35" HorizontalAlignment="Left" Margin="394,148,0,0" VerticalAlignment="Top" Width="184" Height="24" Foreground="White" />
+        <Label x:Name="totalBlocksLabel" Content="Overall Cycle 5 of 40" HorizontalAlignment="Left" Margin="394,166,0,0" VerticalAlignment="Top" Width="184" Height="24" Foreground="White" />
+        <Label x:Name="setTempLabel" Content="Set Temp: 95 dC" HorizontalAlignment="Left" Margin="394,190,0,0" VerticalAlignment="Top" Width="184" Height="24" Foreground="White" />
+        <Label x:Name="runningBlockTempLabel" Content="Block Temp: 84 dC" HorizontalAlignment="Left" Margin="394,209,0,0" VerticalAlignment="Top" Width="184" Height="24" Foreground="White" />
+        <Label x:Name="timeLabel" Content="Time: 15 s" HorizontalAlignment="Left" Margin="394,227,0,0" VerticalAlignment="Top" Width="184" Height="24" Foreground="White" />
+        <Label x:Name="separatorLabel" Content="___________________________________________________________________________" HorizontalAlignment="Left" Margin="394,173,0,0" VerticalAlignment="Top" Width="184" Height="30" Foreground="White" />
+        <Button x:Name="editProgramsBtn" Content="Edit" HorizontalAlignment="Left" Height="26" Margin="392,354,0,0" VerticalAlignment="Top" Width="71" Click="editProgramsBtn_Click"/>
+        <Button x:Name="exportProgramsBtn" Content="Export" HorizontalAlignment="Left" Height="26" Margin="467,354,0,0" VerticalAlignment="Top" Width="71" Click="exportProgramsBtn_Click"/>
+        <Button x:Name="importProgramsBtn" Content="Import" HorizontalAlignment="Left" Height="26" Margin="542,354,0,0" VerticalAlignment="Top" Width="71" Click="importProgramsBtn_Click"/>
+        <Button x:Name="uploadProgramsBtn" Content="Upload" HorizontalAlignment="Left" Height="26" Margin="618,354,0,0" VerticalAlignment="Top" Width="71" Click="uploadProgramsBtn_Click"/>
+        <TextBox x:Name="setBlockTempBox" HorizontalAlignment="Left" Height="23" Margin="266,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="44"/>
+        <Label x:Name="dCLabel" Content="°C" HorizontalAlignment="Left" Margin="314,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="setBlockTempBtn" Content="Set Block to" HorizontalAlignment="Left" Height="26" Margin="189,40,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False" Click="setBlockTempBtn_Click"/>
+        <Button x:Name="turnOffBlockBtn" Content="Block off" HorizontalAlignment="Left" Height="26" Margin="340,40,0,0" VerticalAlignment="Top" Width="64" IsEnabled="False" Click="turnOffBlockBtn_Click"/>
+    </Grid>
+</Window>
