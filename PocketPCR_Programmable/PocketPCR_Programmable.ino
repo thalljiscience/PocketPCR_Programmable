@@ -165,7 +165,7 @@ short overallCycleAt=0;
 char displayStr[25];
 
 // Repurposed EEProm for storing open-ended programs in a byte array rather than six params for one simple program
-#define MAX_SETTINGS 5000 // Length of EEPROM byte buffer for allocation of program storage space - this is enough for 10 programs of up to 60 cycles each
+#define MAX_SETTINGS 5000 // Length of EEPROM byte buffer for allocation of program storage space
 typedef struct {
   byte value[MAX_SETTINGS];
 } EEprom;
