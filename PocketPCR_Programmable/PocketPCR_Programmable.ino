@@ -207,7 +207,7 @@ void setup() {
   attachInterrupt(ENCODER_1, rotate, CHANGE);
   attachInterrupt(ENCODER_2, rotate, CHANGE);
 
-  // initialize serial communications at 115200 bps:
+  // Initialize serial communications at 115200 bps:
   Serial.begin(115200);
   
   display.begin(SSD1306_SWITCHCAPVCC);
@@ -235,7 +235,7 @@ void setup() {
   // Show image buffer on the display hardware.
   analogReadResolution(12);
 
-  // allocate memory for serial port input and output
+  // Allocate memory for serial port input and output
   command=new char[100];
   commandPos=0;
   command[0]='\0';
@@ -279,7 +279,7 @@ void processPCRState()
       if (counter > 1) counter = 0;
       if (counter < 0) counter = 1;
       MenuItem = counter;
-      if (rotaryTurned) draw_main_display(); // hold the version screen until the rotary dial is turned for the first time
+      if (rotaryTurned) draw_main_display(); // Hold the version screen until the rotary dial is turned for the first time
       
       if (!digitalRead(butPin)) {       
         while (!digitalRead(butPin));
@@ -287,7 +287,7 @@ void processPCRState()
           caseUX = CASE_Run;
           casePCR = PCR_set;     
           cycleAt=0;    
-          blockAt=0; // Replaced PCRState from original code with blockAt (block in open-ended program  
+          blockAt=0; // Replaced PCRState from original code with blockAt (block in open-ended program)  
           cycleRepeatAt=0;   
           overallCycleAt=0;  
           counter = 0;  
@@ -447,11 +447,11 @@ void processPCRState()
  * The main loop is interrupted each time data appears on the serial buffer
  * Program flow is redirected here to either append serial data to a 
  * developing command or, when a carriage return is encountered, to finalize
- * and try to execute the ommand, if recognized, then continue the main loop
+ * and try to execute the command, if recognized, then continue the main loop
  * upon exit.
  * 
- * Command parameters are comma-delimited for simlicity.  A little unusal, and
- * a break from white-space delimitation, like on a termanl cmmand line, but
+ * Command parameters are comma-delimited for simplicity.  A little unusal, and
+ * a break from white-space delimitation, like on a terminal command line, but
  * this allows for commands with spaces in them and a simple serial format for
  * parameters.  Parameters are not named, but are positionally oriented and the
  * syntax must be known to properly form parameters
@@ -463,7 +463,7 @@ void processSerialCommands()
     command[commandPos]=(char)incomingByte;
     commandPos++; 
   }
-  else {  // carriage return encountered
+  else {  // Carriage return encountered
     if (commandPos>0) { // if command length is >0
       command[commandPos]='\0';
       commandPos=0;   
@@ -472,7 +472,7 @@ void processSerialCommands()
       char* baseCommand=token;
       char* params[10];
       int numParams=0; 
-      // loop through the string to extract all other tokens
+      // Loop through the string to extract all other tokens
       while( token != NULL ) {  // make list of parameters
         token = strtok(NULL, ",");
         params[numParams]=token;
@@ -1119,7 +1119,7 @@ ProgramsDefinition Programs;
 
 /*
  * Read block temperature
- * THis was modified to include a second recalibration if necessary.  Currently set to not change determined temp
+ * This was modified to include a second recalibration if necessary.  Currently set to not change determined temp
  */
 void readAnalogData()
 {
@@ -1354,7 +1354,7 @@ void draw_run_display()
   display.display();
 }
 
-// rotate is called anytime the rotary inputs change state.
+// Rotate is called anytime the rotary inputs change state.
 void rotate() {
   delayMicroseconds(500) ;
   unsigned char result = rotary.process();
