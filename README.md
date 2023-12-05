@@ -21,7 +21,7 @@ WARNING: The custom Adafruit Feather M0 device does not have a reset switch.  If
 The original designs and device code for the PocketPCR can be found at https://github.com/GaudiLabs/PocketPCR.
 To replace the limited programmability of the PocketPCR with an open-ended set of extensible programs that can be programmed and operated from a Windows computer:
 
-1.  Install the Arduino controller IDE:  https://www.arduino.cc/en/guide/windows
+1.  Install the Arduino controller IDE:  https://www.arduino.cc/en/software
 2.  Download files in the PocketPCR_Programmable folder
 3.  In the Arduino IDE, choose File->Preferences and add the following URL to "Additional Boards Manager URLs":
     https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
